@@ -1,0 +1,18 @@
+﻿Structure Of A Web Browser
+
+
+A Web browser, at a minimum, consists of an Hypertext Markup Language (HTML) interpreter and HTTP client that is used to retrieve HTML Web pages. 
+
+
+  
+
+
+
+The browser’s consist of the above component where
+1. User Interface is the top bar in the browser, where control lies. It includes space where we type the URL, have back/forward buttons, space where tabs and setting options are.
+2. Browser engine is the bridge between User Interface and the Rendering engine. Based on the inputs from a user it queries and manipulates the rendering engine.
+3. Rendering engine is responsible for parsing HTML/CSS/XML and displaying it into the empty space below User-Interface. Based on the plugins and support it can display other types of media also(like pdf/word). There are two major rendering engines in market Webkit and Gecko. Basic functionality is that it parses HTML by looking for <,/,> and related symbols and attributes, then it parses CSS and finally scripts. A point to be noted is that all the parsing goes in parallel.
+4. Networking is fetching resources and handling everything related to the internet. 
+5. Javascript interpreter is JS engine which reads and executes the js code and handles the result to the rendering engine.
+6. UI backend is used for drawing basic widgets like combo boxes and windows. This backend exposes a generic interface that is not platform specific. It underneath uses operating system user interface methods.
+7. Data Persistence is support for storage mechanisms such as localStorage, IndexedDB, WebSQL, and FileSystem. It is a small database created on the local drive of the computer where the browser is installed. It manages user data such as cache, cookies, bookmarks, and preferences.
