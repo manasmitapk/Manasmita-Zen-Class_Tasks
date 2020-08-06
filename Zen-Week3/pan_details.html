@@ -2,7 +2,13 @@
   <html>
     <head>
       <title>PAN Card Update Design</title>
+      <link rel="stylesheet" href="style.css"></link>
     </head>
+    <style>
+      .body{
+        background-color: rgba(248, 204, 91, 0.945);
+      }
+    </style>
       <body>
        <table>
           <td>
@@ -315,6 +321,7 @@
                         <b>Country</b>
                         &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                         &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                         <select>
                             <option value="">-- Please Select --</option>
                             <option value="in">India</option>
@@ -329,6 +336,7 @@
                         <b>Zip</b>
                         &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                         &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                         <input type="text" disabled>
                     </td>
                 </tr>
@@ -469,26 +477,163 @@
                   <td>&nbsp;</td>
                   <td colspan="2"><b> 15. Verification </b></td>
                </tr>
-               
-            
-
-
-
-
-
-
-
-
+               <td>&nbsp;</td>
+                     <td colspan="2" valign="TOP">I/We 
+                     &nbsp;&nbsp;&nbsp;&nbsp;
+                     <input type="text" name="PAN_VERIFY_NAME" value="" size="75" maxlength="75" onchange="document.getElementById('dsc1').value=this.value" onload="document.getElementById('dsc1').value=this.value"> 
+                     ,the applicant,in the capacity of
+                     &nbsp;&nbsp;&nbsp;
+                     <select name="PAN_VERIFY_CAPACITY">
+                              <option value="">-- Please Select --
+                              </option><option value="01"> Himself/herself
+                              </option><option value="07"> Representative Assessee
+                         </option></select>
+                     do hereby declare that what is stated above is true to the best of my information and belief. <br>
+                     I have enclosed <input type="text" name="PAN_NOCOPY" value="" size="2" maxlength="2">
+                     (number of documents) in support of proposed changes/corrections.
+                   </td>
+                 </tr>
+    
+                 <tr>
+                    <td>&nbsp;</td>
+                    <td>Place
+                      &nbsp;&nbsp;&nbsp;&nbsp;
+                      <input type="text" name="Place" value="">
+                    </td>
+                   </tr>
                   
+                   <tr>
+                    <td>&nbsp;</td>
+                    <td >
+                      Verified today, 04 - 08 - 2020
+                    </td>
+                  </tr>
+                
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        I/We have enclosed   
+                        <select name="name">
+                            <option value="">---Please Select---</option><option value="9" title="Copy of passport">Copy of passport</option><option value="36" title="Copy of Person of Indian Origin card issued by Government of India">Copy of Person of Indian Origin card issued by Government of India</option>
+                        </select>
+                        as a part of identity
+                        <select name="name">
+                            <option value="">---Please Select---</option><option value="9" title="Copy of passport">Copy of passport</option><option value="36" title="Copy of Person of Indian Origin card issued by Government of India">Copy of Person of Indian Origin card issued by Government of India</option>
+                        </select>
+                        as proof of address,
+                        <select name="name">
+                            <option value="">---Please Select---</option><option value="9" title="Copy of passport">Copy of passport</option><option value="36" title="Copy of Person of Indian Origin card issued by Government of India">Copy of Person of Indian Origin card issued by Government of India</option>
+                        </select>
+                        as proof of date of birth and
+                        <select name="name">
+                            <option value="">---Please Select---</option><option value="9" title="Copy of passport">Copy of passport</option><option value="36" title="Copy of Person of Indian Origin card issued by Government of India">Copy of Person of Indian Origin card issued by Government of India</option>
+                        </select>
+                         as proof of PAN allotted.
+                    </td>
+                </tr>
 
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <b> Whether you wish to have? </b>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                            <label for="both">Physical PAN Card & e-PAN Card</label>
+                            <input type="radio" name="card" id="both">
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <label for="pan">Only PAN Card</label>
+                            <input type="radio" name="card" id="pan">
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <label for="e-pan">Only E-PAN Card</label>
+                            <input type="radio" name="card" id="e-pan">
+                    </td>
+                </tr>
 
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <b> Other Details </b>
+                    </td>
+                </tr>
 
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <b>1. Depository Account Details</b>
+                    </td>
+                </tr>
 
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <b> DP ID:</b>
+                        <input type="text" id="DP"> &nbsp;&nbsp;&nbsp;
+                        <b> client ID:</b>
+                        <input type="text" id="client">
+                    </td>
+                </tr>
 
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <b> 2. Payment Details </b>
+                    </td>
+                </tr>
 
+                <tr>
+                    <td><input type="radio" id="paymnet"></td>
+                    <td>
+                        <b> Online Payment </b>
+                    </td>
+                </tr>
 
-
+            </tbody>
         </table>
+        <b>For Paperless PAN Application:</b>
+            <label for="paperless">Yes</label>
+            <input type="radio" name="isPaper" id="yes">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="paper">No</label>
+            <input type="radio" name="isPaper" id="no">
+            <br>
+            <label for="dsc">DSC</label>
+            <input type="radio" name="isPaper" id="dsc" checked>
+            <select>
+                <option value="select">--Select--</option>
+                 <option value="MINOR">Minor</option>
+                 <option value="lu">Lunatic/Idiot</option>
+                 <option value="self">Self</option>
+            </select>
+            
+            <br>
+            <label for="photo">Upload Photo</label>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <input type="file" id="photo">
+            
+            <br>
+            <label for="sign">Upload Signature</label>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <input type="file" id="sign">
+
+            <br>
+            <label for="document">Upload document</label>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <input type="file" id="document">
+            
+            <br>
+            <label for="photo-send">ALREADY UPLOADED PHOTO:</label>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <input type="text" id="photo-send">
+            
+            <br>
+            <label for="sign-send">ALREADY UPLOADED SIGNATURE:</label>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <input type="text" id="sign-send">
+            
+            <br>
+            <label for="document-send">ALREADY UPLOADED DOCUMENTS:</label><br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <textarea rows="4" cols="50" value=""></textarea><br>
+            <input type="submit">  
       </form>
     </body>
  
