@@ -1,0 +1,53 @@
+.item-a {
+    grid-column-start: 2;
+    grid-column-end: five;
+    grid-row-start: row1-start;
+    grid-row-end: 3;
+  }
+  .outermost {
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 135px;
+    background-color: white;
+}
+.innerbox {
+    width:90%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    height:auto;
+}
+.banner {
+    position: relative;
+    top: auto;
+    background-color: maroon;
+    color: white;
+    width: 70px;
+}
+.article1 {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.bdr{
+    border-top:1px solid #808080bf;
+    border-bottom:1px solid #808080bf;
+}
+.header-center {
+    position: relative;
+    left: 170px;
+}
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 2px solid black;
+    
+}
+.border-div {
+    border:2px solid black;
+    padding-right: 4px;
+}
+.article-img {
+    position: relative;
+    right: 10px;
+}
