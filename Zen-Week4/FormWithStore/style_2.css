@@ -1,0 +1,46 @@
+body{
+    margin: auto;
+ }
+
+.main{
+    top: 50px;
+    position: relative;
+    width: 600px;
+    margin: auto;
+    background-color: rgb(130, 238, 238) ;
+    padding: 10px;
+    border-radius: 10px;
+    padding-bottom: 10px;
+}
+
+#genderInputDiv{
+    float: right;
+    margin-right: 25px;
+}
+
+#firstnameDiv, #lastnameDiv, #addressDiv, #pincodeDiv,#genderDiv,#fooditemDiv,#stateDiv,#countryDiv{
+    position: relative;
+    top: 5px;
+    width: 500px;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#firstnameDiv input, #lastnameDiv input, #addressDiv input, #pincodeDiv input,#stateDiv input,#countryDiv input{
+   float: right;
+}
+
+#fooditemDiv{
+    height: 100px;
+}
+
+#fooditemChoiceDiv{
+    float: right;
+    margin-right: 25px;
+}
+
+table{
+    border: black solid;
+}
+
