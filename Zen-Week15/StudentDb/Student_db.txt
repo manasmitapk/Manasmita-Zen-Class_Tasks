@@ -1,0 +1,92 @@
+
+1.Create a Student db
+---> use Student_db;
+
+2.Insert of 10 records(name, mobile, status{active,inactive},age,location:)
+---> db.collection.insertMany([
+
+    {
+        "Name":"Student-1",
+        "Mobile No.": "9104563727",
+        "Status":"Active",
+        "Age":"25",
+        "Location":"Bangalore"
+    },
+    {
+        "Name":"Student-2",
+        "Mobile No.": "6492640203",
+        "Status":"Inactive",
+        "Age":"29",
+        "Location":"Berhampur"
+    },
+    {
+        "Name":"Student-3",
+        "Mobile No.": "9473509750",
+        "Status":"Active",
+        "Age":"10",
+        "Location":"Pune"
+    },
+    {
+        "Name":"Student-4",
+        "Mobile No.": "9280971304",
+        "Status":"Inactive",
+        "Age":"32",
+        "Location":"Rajasthan"
+    },
+    {
+        "Name":"Student-5",
+        "Mobile No.": "6193302749",
+        "Status":"Active",
+        "Age":"20",
+        "Location":"Bangalore"
+    },
+    {
+        "Name":"Student-6",
+        "Mobile No.": "9238047203",
+        "Status":"Active",
+        "Age":"25",
+        "Location":"Bangalore"
+    },
+    {
+        "Name":"Student-7",
+        "Mobile No.": "2751843289",
+        "Status":"Active",
+        "Age":"16",
+        "Location":"Bangalore"
+    },
+    {
+        "Name":"Student-8",
+        "Mobile No.": "9236493690",
+        "Status":"Inactive",
+        "Age":"26",
+        "Location":"Bangalore"
+    },
+    {
+        "Name":"Student-9",
+        "Mobile No.": "9287916395",
+        "Status":"Inactive",
+        "Age":"17",
+        "Location":"Bangalore"
+    },
+    {
+        "Name":"Student-10",
+        "Mobile No.": "9104563727",
+        "Status":"Active",
+        "Age":"42",
+        "Location":"Bangalore"
+    }
+    
+]);
+
+
+3.Find all the details of student db
+---> db.collection.find({});
+
+4.Find the details which are greater then of the age 18
+---> db.collection.find({"Age":{$gt:"18"}});
+
+5.Find the details of student db which contain status is active
+---> db.collection.find({"Status":{$eq:"Active"}});
+
+6.Find the details from db with status of active and age greater than 20.
+---> db.collection.find({$and: [{"Status":{$eq:"Active"}},{"Age":{$gt:"20"}}]});

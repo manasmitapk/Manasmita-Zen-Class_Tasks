@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.css">
+    <style>
+        .cls {
+            background-color: #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        var isFirst = false;
+        var container = document.createElement('div');
+        container.classList.add('container', 'mt-3', 'cls');
+     
+
+        var row = document.createElement('div');
+        row.classList.add('row');
+
+        var col1 = document.createElement('div');
+        col1.classList.add('col-3');
+        var col2 = document.createElement('div');
+        col2.classList.add('col');
+
+
+        var form = document.createElement('form');
+        form.id = 'form';
+        form.setAttribute('onsubmit', 'data()');
+
+       
+        var inputName1 = createFormGroupElement('input', 'text', 'first-name', 'First Name');
+        var inputName2 = createFormGroupElement('input', 'text', 'last-name', 'Last Name');
+
+        var labelForMale = document.createElement('label');
+        labelForMale.innerText = 'Male';
+        labelForMale.setAttribute('for', 'male');
+        var male = document.createElement('input');
+        male.setAttribute('type', 'radio');
+        male.setAttribute('id', 'male');
+        male.setAttribute('name', 'gender');
+        male.setAttribute('value', 'male');
+        labelForMale.appendChild(male);
+
+        var labelForFemale = document.createElement('label');
+        labelForFemale.innerText = 'Female';
+        labelForFemale.setAttribute('for', 'female');
+        var female = document.createElement('input');
+        female.setAttribute('type', 'radio');
+        female.setAttribute('id', 'female');
+        female.setAttribute('name', 'gender');
+        female.setAttribute('value', 'female');
+        labelForFemale.appendChild(female);
+
+        var address = document.createElement('textarea');
+        address.setAttribute('id', 'address');
+        address.required = true;
+        address.setAttribute('name', 'address');
+        address.setAttribute('placeholder', 'Address');
+        address.setAttribute('class', 'form-control');
+
+        var pinCode = createFormGroupElement('input', 'number', 'pin-code', 'Pincode');
+        var street = createFormGroupElement('input', 'text', 'street', 'Street Name');
+
+        var foodChoice = document.createElement('select');
+        foodChoice.setAttribute('id', 'food-choice');
+        foodChoice.setAttribute('name', 'food-choice');
+        foodChoice.setAttribute('class', 'custom-select');
+        foodChoice.multiple = true;
+
+        var option1 = document.createElement('option');
+        option1.setAttribute('value', 'RT');
+        option1.innerText = 'Rotti';
+        var option2 = document.createElement('option');
+        option2.setAttribute('value', 'BY');
+        option2.innerText = 'Briyani';
+        var option3 = document.createElement('option');
+        option3.setAttribute('value', 'BY1');
+        option3.innerText = 'Briyani1';
+        foodChoice.append(option1, option2, option3);
+
+        var country = document.createElement('select');
+        country.setAttribute('id', 'country');
+        country.setAttribute('name', 'country');
+        country.setAttribute('class', 'custom-select');
+
+        var countryOption1 = document.createElement('option')
+        countryOption1.value = 'IN';
+        countryOption1.innerText = 'India';
+        var countryOption2 = document.createElement('option')
+        countryOption2.value = 'US';
+        countryOption2.innerText = 'United States';
+        country.append(countryOption1, countryOption2);
+
+
+        var button = document.createElement('button');
+        button.innerText = 'Add Data';
+        button.classList.add('btn', 'btn-primary', 'mt-3');
+        button.type = 'submit';
+        form.append(inputName1, inputName2, labelForMale, labelForFemale, address, street, pinCode, foodChoice, country, button);
+
+        col2.appendChild(form);
+
+        var col3 = document.createElement('div');
+        col3.classList.add('col-3');
+
+        row.appendChild(col1);
+        row.appendChild(col2);
+        row.appendChild(col3);
+        container.appendChild(row);
+
+
+        document.body.appendChild(container);
+
+        function createFormGroupElement(elem, type, elemId, str) {
+            var formGroup = document.createElement('div');
+            formGroup.classList.add('form-group');
+            var label = document.createElement('label');
+            label.setAttribute('for', elemId);
+            label.innerText = str;
+            var element = document.createElement(elem);
+            element.setAttribute('class', 'form-control');
+            element.setAttribute('id', elemId);
+            element.setAttribute('type', type);
+            element.setAttribute('name', elemId);
+            element.setAttribute('placeholder', str);
+            formGroup.append(label, element);
+            return formGroup;
+        }
+
+        function data() {
+            event.preventDefault();
+
+            var firstName = document.getElementById('first-name').value;
+            var lastName = document.getElementById('last-name').value;
+            var gender = document.querySelector('input[name="gender"]:checked').value;
+            var addr = document.getElementById('address').value;
+            var pinNo = document.getElementById('pin-code').value;
+            var food = document.getElementById('food-choice');
+            var foodValue = [...food.selectedOptions].map(opt => opt.value);
+            var countryValue = document.getElementById('country').value;
+            var streetValue = document.getElementById('street').value;
+
+            console.log(firstName, lastName, gender, addr, pinNo, foodValue, countryValue);
+
+            var data = {
+                firstName,
+                lastName,
+                gender,
+                addr,
+                streetValue,
+                pinNo,
+                foodValue,
+                countryValue
+            };
+
+            insertRecord(data);
+
+            document.getElementById('form').reset();
+        }
+
+        var table = document.createElement('table');
+        function insertRecord(data) {
+            var arrKeys = Object.keys(data);
+            var arrValues = Object.values(data);
+            table.classList.add('table');
+            if (isFirst) {
+                var tbody = document.createElement('tbody');
+                var tr = document.createElement('tr');
+                for (let index = 0; index < arrValues.length; index++) {
+                    var td = document.createElement('td');
+                    td.innerText = arrValues[index];
+                    tr.appendChild(td);
+                }
+                tbody.appendChild(tr);
+
+            } else {
+                //for first time adding both table header & data
+                var thead = document.createElement('thead');
+                thead.classList.add('thead-dark');
+                var tr = document.createElement('tr');
+                for (let index = 0; index < arrKeys.length; index++) {
+                    var td = document.createElement('td');
+                    td.innerText = arrKeys[index];
+                    tr.appendChild(td);
+                }
+                thead.appendChild(tr);
+                table.appendChild(thead);
+
+                var tbody = document.createElement('tbody');
+                var tr = document.createElement('tr');
+                for (let index = 0; index < arrValues.length; index++) {
+                    var td = document.createElement('td');
+                    td.innerText = arrValues[index];
+                    tr.appendChild(td);
+                }
+                tbody.appendChild(tr);
+                isFirst = true;
+            }
+
+            table.appendChild(tbody);
+
+            document.body.appendChild(table)
+        }
+    </script>
+
+
+</body>
+
+</html>

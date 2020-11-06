@@ -499,7 +499,7 @@ var tableData = [
       "name": "Arlene Kassulke",
       "email": "Josiane_Smith@yahoo.com"
     }
-  ]
+  ];
 
 
 /*
@@ -509,26 +509,25 @@ var tableData = [
 
 
 var state = {
-  'querySet': tableData,
-
+  'dataSet': tableData,
   'page': 1,
   'rows': 10,
   'window': 5,
 }
 
-buildTable()
+buildTable();
 
-function pagination(querySet, page, rows) {
+function pagination(dataSet, page, rows) {
 
-  var trimStart = (page - 1) * rows;
-  var trimEnd = trimStart + rows;
+  var Start = (page - 1) * rows;
+  var End = Start + rows;
 
-  var trimmedData = querySet.slice(trimStart, trimEnd);
+  var trimmedData = dataSet.slice(Start, End);
 
-  var pages = Math.round(querySet.length / rows);
+  var pages = Math.round(dataSet.length / rows);
 
   return {
-    'querySet': trimmedData,
+    'dataSet': trimmedData,
     'pages': pages,
   }
 }
@@ -543,31 +542,31 @@ function pageButtons(pages) {
   var maxRight = (state.page + Math.floor(state.window / 2))
 
   if (maxLeft < 1) {
-    maxLeft = 1
-    maxRight = state.window
+    maxLeft = 1;
+    maxRight = state.window;
   }
 
   if (maxRight > pages) {
-    maxLeft = pages - (state.window - 1)
+    maxLeft = pages - (state.window - 1);
 
     if (maxLeft < 1) {
-      maxLeft = 1
+      maxLeft = 1;
     }
-    maxRight = pages
+    maxRight = pages;
   }
 
 
 
   for (var page = maxLeft; page <= maxRight; page++) {
-    wrapper.innerHTML += `<button value=${page} class="page btn btn-sm btn-info">${page}</button>`
+    wrapper.innerHTML += `<button value=${page} class="page btn btn-sm btn-info">${page}</button>`;
   }
 
   if (state.page != 1) {
-    wrapper.innerHTML = `<button value=${1} class="page btn btn-sm btn-info">&#171; First</button>` + wrapper.innerHTML
+    wrapper.innerHTML = `<button value=${1} class="page btn btn-sm btn-info">&#171; First</button>` + wrapper.innerHTML;
   }
 
   if (state.page != pages) {
-    wrapper.innerHTML += `<button value=${pages} class="page btn btn-sm btn-info">Last &#187;</button>`
+    wrapper.innerHTML += `<button value=${pages} class="page btn btn-sm btn-info">Last &#187;</button>`;
   }
 
   $('.page').on('click', function() {
@@ -584,8 +583,8 @@ function pageButtons(pages) {
 function buildTable() {
   var table = $('#table-body');
 
-  var data = pagination(state.querySet, state.page, state.rows);
-  var myList = data.querySet;
+  var data = pagination(state.dataSet, state.page, state.rows);
+  var myList = data.dataSet;
 
   for (var i = 1 in myList) {
 
