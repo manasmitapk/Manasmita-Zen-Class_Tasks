@@ -202,7 +202,7 @@
 8.Find all products which contain the value of soft in product material 
 --->  db.users.find({"product_material":{$eq: "Soft"}});
 
-9.Find products which contain product color indigo  and product price 492.00
+9.Find products which contain product color indigo or product price 492.00
 --->  db.users.find( { $or: [ {product_color:"indigo"}, {"product_price": 492.00}] } );
 
 10.Delete the products which product price value are same
