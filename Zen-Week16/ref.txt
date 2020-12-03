@@ -1,0 +1,11 @@
+What is client, Server?
+What is nodejs?
+difference between CSR (Client Side Rendering) & SSR(Server Side Rendering)?
+node Vs Browser
+npm
+
+
+Packages:
+    Inbuilt
+    custom
+    third-party
