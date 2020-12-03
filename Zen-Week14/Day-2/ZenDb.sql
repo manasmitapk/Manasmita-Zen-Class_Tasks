@@ -2,11 +2,11 @@ create database zenDb;
 use zenDb;
 
 create table mentors(mentor_id integer, mentor_name varchar(100));
-INSERT INTO mentors values(1, 'John Doe');
-INSERT INTO mentors values(2, 'John Doe1');
-INSERT INTO mentors values(3, 'John Doe2');
-INSERT INTO mentors values(4, 'John Doe3');
-INSERT INTO mentors values(5, 'John Doe4');
+INSERT INTO mentors values(1, 'Mentor1');
+INSERT INTO mentors values(2, 'Mentor2');
+INSERT INTO mentors values(3, 'Mentor3');
+INSERT INTO mentors values(4, 'Mentor1');
+INSERT INTO mentors values(5, 'Mentor1');
 
 create table courses(course_id integer, course_name varchar(100), course_details varchar(100));
 INSERT INTO courses values(1, 'Basic JS', 'Learn java script');
