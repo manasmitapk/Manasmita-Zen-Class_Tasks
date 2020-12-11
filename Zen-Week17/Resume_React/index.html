@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Resume</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
+        <style>
+            body{
+                font-family: cursive;
+            }
+
+            .mainName{
+                height: 200px;
+                background-color: rgb(17, 163, 236);
+                color: white;
+                padding: 30px;
+                text-align: center;
+            }
+            h1{
+                font-size: 50px;
+            }
+
+            ul {
+                list-style-type: circle;
+
+            }
+
+            .lightP{
+                color:black;
+                margin: 5px;
+            }
+
+            .boldP{
+                font-weight: bold;
+                margin-left: 5px;
+                margin-top: 5px;
+            }
+             
+            p{
+                margin: 5px;
+            }
+
+            h6{
+                margin-top: 10px;
+            }
+
+           
+
+
+        
+        </style>
+    </head>
+    <body>
+        <div class="container" id="root"></div>
+        
+    </body>
+    <script type="text/babel">
+        let rootElement = document.getElementById("root")
+        let NameHeading = ({name})=> <h1>{name}</h1>
+        let RoleHeading = ({name})=> <h3>{name}</h3>
+        let TopicHeading = ({name})=> <h6><b>{name}</b></h6>
+        let CreateContactList = ()=>{
+            return <ul>
+                <li>manasmita.pk@gmail.com</li>
+                <li>+91 9108916611</li>
+                <li>Bangalore, India</li>
+                <li>github.com/manasmita.pk</li>
+                <li>linkedin.com/in/manasmita-pattnaik</li>
+            </ul>
+        }
+
+        let CreateSkillsList = ()=>{
+            return <ul>
+                <li>JavaScript, HTML, CSS</li>
+                <li>My SQL, MongoDB</li>
+                <li>Git</li>
+            </ul>
+        }
+        let CreatePagaraphTag = ({name})=> <p>{name}</p>
+        let CreateLightPagaraphTag = (props)=> <p className={props.className}>{props.name}</p>
+        let FirstColDiv = (props) =>{
+            return <div className={props.name}>
+                <TopicHeading name="CONTACT" />
+                <CreateContactList />
+                <TopicHeading name="PROFILE" />
+                <CreatePagaraphTag name="Dedicated and performance-driven Techie with a pro-active approach and determination to successfully finish all assigned projects within the schedule. Effective team player offering extraordinary analytical skills and the important ability to think critically."/>
+                <TopicHeading name="EDUCATION" />
+                <CreateLightPagaraphTag name="2017" className="lightP"/>
+                <CreateLightPagaraphTag name="Sanjay Memorial Institute OF Technology, Berhampur" className="lightP"/>
+                <CreateLightPagaraphTag name="Bachelor of Engineering, Civil" className="boldP"/>
+                <TopicHeading name="TECHICAL SKILLS" />
+                <CreateSkillsList />
+            </div>
+        }
+        let CreateCurrentProjectList = ()=>{
+            return <ul>
+                <li className="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Neque adipisci aspernatur laboriosam consectetur quod nulla? Repudiandae inventore 
+                    vel modi quo iure quaerat minima quam nam laudantium dolor, cupiditate libero. Consequatur.</li>
+                <li className="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Neque adipisci aspernatur laboriosam consectetur quod nulla? Repudiandae inventore 
+                    vel modi quo iure quaerat minima quam nam laudantium dolor, cupiditate libero. Consequatur.</li>
+            </ul>
+        }
+
+        let CreatePastProjectsList = ()=>{
+            return <ul>
+                <li className="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Neque adipisci aspernatur laboriosam consectetur quod nulla? Repudiandae inventore 
+                    vel modi quo iure quaerat minima quam nam laudantium dolor, cupiditate libero. Consequatur.</li>
+                <li className="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Neque adipisci aspernatur laboriosam consectetur quod nulla? Repudiandae inventore 
+                    vel modi quo iure quaerat minima quam nam laudantium dolor, cupiditate libero. Consequatur.</li>
+            </ul>
+        }
+       
+        let SecondColDiv = (props) =>{
+            return <div className={props.name}>
+                <TopicHeading name="EXPERIENCE" />
+                <CreateLightPagaraphTag name="Jun 2017 - Jul 2020" className="lightP"/>
+                <CreateLightPagaraphTag name="Sr. Executive CRM | Sobha Ltd" className="boldP" />
+                <CreatePagaraphTag name="Current Project" />
+                <CreateCurrentProjectList />
+                <CreatePagaraphTag name="Past Projects" />
+                <CreatePastProjectsList />
+            </div>
+        }
+        let CreateDiv = ({name}) => <div className={name}> </div>
+        let RowDiv = ({name})=>{
+            return <div className={name}>
+                <FirstColDiv name="col-sm-12 col-md-5"/>
+                <SecondColDiv name="col-sm-12 col-md-7"/>
+            </div>
+        }       
+        let BackgrounddDiv = ({name}) => {
+            return <div className={name}>
+                    <NameHeading name="Manasmita Pattnaik"/>
+                    
+                   </div>
+        }
+        let mainDiv = <div>
+            <BackgrounddDiv name="mainName" />
+            <RowDiv name="row" />
+        </div>
+        ReactDOM.render(mainDiv, rootElement)
+    </script>
+    
+    
+</html> 
